@@ -16,7 +16,7 @@ document.body.appendChild(canvas);
 
 for (var i = 0; i < 1680; i++){
   var pixel = document.createElement("div");
-    pixel.style.className = "pixel";
+    pixel.className = ("pixel");
     pixel.style.width = "12px";
     pixel.style.height = "12px";
     pixel.style.float = "right";
@@ -31,7 +31,7 @@ for (var i = 0; i < 1680; i++){
 
 
 var palette = document.createElement("div");
-  palette.style.className = "palette";
+  palette.className = ("palette");
   palette.style.width = "588px";
   palette.style.height = "100px";
   palette.style.border = ".5px solid #293033";
@@ -45,7 +45,7 @@ document.body.appendChild(palette);
 for (var i = 0; i < 28; i++){
 var color = document.createElement("div");
   color.style.display = "inline-block";
-  color.style.className = "color";
+  color.className = ("color");
   color.style.border = ".5px solid";
   color.style.borderRadius = "15px";
   color.style.height = "20px";
@@ -55,7 +55,7 @@ var color = document.createElement("div");
 palette.appendChild(color);
 }
 
-
+var colorStorage = "";
 document.getElementById('0').style.backgroundColor = "white";
 document.getElementById('1').style.backgroundColor = "black";
 document.getElementById('2').style.backgroundColor = "#404040";
@@ -89,7 +89,15 @@ document.getElementById('27').style.backgroundColor = "#b8b0b3";
 // event listener for pixel selection & color change//
 
 
-document.querySelector(".canvas").addEventListener('click', function (event){
-  event.target.style.backgroundColor = 'black';
+document.querySelector('.canvas').addEventListener('click', function (event){
+  event.target.style.backgroundColor = colorStorage;
   console.log('click');
+});
+
+// selecting color from palette //
+
+
+
+document.querySelector(".palette").addEventListener('click', function (event){
+  colorStorage = event.target.style.backgroundColor;
 });
