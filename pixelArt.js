@@ -7,6 +7,8 @@ var canvas = document.createElement("div");
   canvas.className = ("canvas");
   canvas.style.width = "588px";
   canvas.style.height = "560px";
+  canvas.style.marginLeft = "20%";
+  canvas.style.marginRight = "30%";
   canvas.style.border = "2px solid #f5e7cd";
 document.body.appendChild(canvas);
 
@@ -33,7 +35,9 @@ for (var i = 0; i < 1680; i++){
 var palette = document.createElement("div");
   palette.className = ("palette");
   palette.style.width = "588px";
-  palette.style.height = "100px";
+  palette.style.height = "90px";
+  palette.style.marginLeft = "20%";
+  palette.style.marginRight = "30%";
   palette.style.border = ".5px solid #293033";
   palette.style["margin-top"] = "10px";
 document.body.appendChild(palette);
@@ -55,8 +59,17 @@ var color = document.createElement("div");
 palette.appendChild(color);
 }
 
+
+// color selection indictor //
+
+
 var colorStorage = "";
-document.getElementById('0').style.backgroundColor = "white";
+
+
+// colors by ID //
+
+
+document.getElementById('0').style.backgroundColor = "colorStorage";
 document.getElementById('1').style.backgroundColor = "black";
 document.getElementById('2').style.backgroundColor = "#404040";
 document.getElementById('3').style.backgroundColor = "#794044";
@@ -83,7 +96,7 @@ document.getElementById('23').style.backgroundColor = "#5d703b";
 document.getElementById('24').style.backgroundColor = "#508176";
 document.getElementById('25').style.backgroundColor = "#7a4d67";
 document.getElementById('26').style.backgroundColor = "#f7d4cc";
-document.getElementById('27').style.backgroundColor = "#b8b0b3";
+document.getElementById('27').style.backgroundColor = "white";
 
 
 // event listener for pixel selection & color change//
@@ -94,10 +107,12 @@ document.querySelector('.canvas').addEventListener('click', function (event){
   console.log('click');
 });
 
-// selecting color from palette //
 
+// selecting color from palette //
 
 
 document.querySelector(".palette").addEventListener('click', function (event){
   colorStorage = event.target.style.backgroundColor;
+  document.getElementById('0').style.backgroundColor = colorStorage;
+
 });
